@@ -1,4 +1,10 @@
 /**
+ *  path setting
+ */
+process.env['NODE_PATH'] = __dirname + '/lib:'  + __dirname + '/node_modules:' + __dirname + '/resources';
+require('module')._initPaths();
+
+/**
  *  dependencies
  */
 var express = require('express');
@@ -7,7 +13,6 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var session = require('express-session')
 var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
 var ECT = require('ect');
