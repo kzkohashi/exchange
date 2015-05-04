@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= @title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <% content %>
-  </body>
+    <head>
+        <title><%= @title %></title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+        <!-- Bootstrap Core CSS -->
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="bootstrap/css/shop-homepage.css" rel="stylesheet">
+    </head>
+    <body>
+        <!-- header -->
+        <% include 'elements/header' %>
+        <% content %>
+        <!-- footer -->
+        <% include 'elements/footer' %>
+
+        <!-- jQuery -->
+        <script src="bootstrap/js/jquery.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+    </body>
 </html>
