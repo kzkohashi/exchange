@@ -16,13 +16,17 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+var router = express.Router();
+app.use(router);
 
 // view engine setup
-var ectRenderer = ECT({ watch: true, root: __dirname + '/views', ext : '.ect' });
+var ectRenderer = ECT({
+    watch: true,
+    root: __dirname + '/views',
+    ext: '.ect'
+});
 app.engine('ect', ectRenderer.render);
 app.set('view engine', 'ect');
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -44,8 +48,9 @@ app.use(session({
     cookie: { secure: true }
 }));
 
-app.use('/', routes);
-app.use('/users', users);
+// app.use('/', routes);
+// app.use('/users', users);
+require('./routes/index').init(router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
