@@ -1,3 +1,5 @@
+var userDao = require('models/dao/user_dao');
+
 exports.init = function(router) {
 
     /* GET home page. */
