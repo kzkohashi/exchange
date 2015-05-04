@@ -11,9 +11,8 @@ var session = require('express-session')
 var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
 var ECT = require('ect');
-
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var fs = require('fs');
+var _ = require('underscore');
 
 var app = express();
 var router = express.Router();
@@ -36,7 +35,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// session管理
+// session
 app.use(session({
     store: new RedisStore({
         host: '127.0.0.1',
@@ -48,9 +47,12 @@ app.use(session({
     cookie: { secure: true }
 }));
 
-// app.use('/', routes);
-// app.use('/users', users);
-require('./routes/index').init(router);
+// router setting
+ var routesFileNameList = fs.readdirSync(path.join(__dirname, 'routes'));
+_.each(routesFileNameList, function(routesFileName) {
+    var routesFileName = routesFileName.replace('.js', '');
+    require('./routes/' + routesFileName).init(router);
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
