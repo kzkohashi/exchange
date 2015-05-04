@@ -1,4 +1,11 @@
+/**
+ * @fileOverview top page
+ */
+
 var userDao = require('models/dao/user_dao');
+
+// facade
+var indexFacade = require('models/facade/index_facade');
 
 exports.init = function(router) {
 
