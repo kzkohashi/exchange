@@ -59,6 +59,18 @@ _.each(routesFileNameList, function(routesFileName) {
     require('./routes/' + routesFileName).init(router);
 });
 
+//set helpers to global object
+_.each([__dirname + '/lib/views/helpers/', __dirname + '/views/helpers/'], function(path) {
+    if (fs.existsSync(path)) {
+        fs.readdirSync(path).forEach(function(file) {
+            var helper = require(path + file);
+            _.each(helper, function(obj, key) {
+                app.locals[key] = obj;
+            });
+        });
+    }
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
