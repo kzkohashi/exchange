@@ -1,0 +1,11 @@
+{
+    "app": {
+        "title": "交換ネット",
+        "baseUrl": "http://52.68.51.77",
+        "staticFileUrl": "http://52.68.51.77",
+        "imageUrl": "http://52.68.51.77",
+        "domain": "52.68.51.77",
+        "mode": "production",
+        "debug": false,
+    }
+}

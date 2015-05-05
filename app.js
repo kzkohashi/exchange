@@ -19,9 +19,11 @@ var ECT = require('ect');
 var fs = require('fs');
 var _ = require('underscore');
 
+// create application
 var app = express();
+
+// create router
 var router = express.Router();
-app.use(router);
 
 // view engine setup
 var ectRenderer = ECT({
@@ -58,8 +60,9 @@ _.each(routesFileNameList, function(routesFileName) {
     var routesFileName = routesFileName.replace('.js', '');
     require('./routes/' + routesFileName).init(router);
 });
+app.use(router);
 
-//set helpers to global object
+//set helpers to app.locals
 _.each([__dirname + '/lib/views/helpers/', __dirname + '/views/helpers/'], function(path) {
     if (fs.existsSync(path)) {
         fs.readdirSync(path).forEach(function(file) {

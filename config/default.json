@@ -1,0 +1,11 @@
+{
+    "app": {
+        "title": "交換ネット",
+        "baseUrl": "http://127.0.0.1",
+        "staticFileUrl": "http://127.0.0.1",
+        "imageUrl": "http://127.0.0.1",
+        "domain": "127.0.0.1",
+        "mode": "local",
+        "debug": false
+    }
+}
