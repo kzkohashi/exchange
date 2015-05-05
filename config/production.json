@@ -6,6 +6,6 @@
         "imageUrl": "http://52.68.51.77",
         "domain": "52.68.51.77",
         "mode": "production",
-        "debug": false,
+        "debug": false
     }
 }
