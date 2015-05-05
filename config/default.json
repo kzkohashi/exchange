@@ -9,6 +9,8 @@
         "debug": false
     },
     "facebook": {
-        "appId": 791997510896861
+        "appId": 791997510896861,
+        "appSecret": "3fa3de4ec77ffc89ac4e907b3689053f",
+        "callbackUrl": "http://127.0.0.1/auth/facebook/callback"
     }
 }

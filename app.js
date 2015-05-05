@@ -14,11 +14,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var RedisStore = require('connect-redis')(session);
+var MongoStore = require('connect-mongo')(session); //sessionストア用のDB
 var ECT = require('ect');
 var fs = require('fs');
 var _ = require('underscore');
 var config = require('config');
+var passport = require('passport');
 
 // create application
 var app = express();
@@ -45,15 +46,35 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // session
 app.use(session({
-    store: new RedisStore({
-        host: '127.0.0.1',
-        port: 6379
+    store: new MongoStore({
+        url: 'mongodb://localhost',
+        db: 'exchange_session_user'
     }),
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true }
+    cookie: {
+        // maxAge: 7 * 24 * 60 * 60 * 1000 // a week
+        // secure: true,
+        httpOnly : true,
+        // path : '/'
+    }
 }));
+
+// filter setting
+app.use(
+    require('middlewares/express_filter')
+    .onError(function(error, req, res){
+        require('routes/error').index(req, res, error);
+    })
+    .setRoot(__dirname)
+    .config(__dirname + '/config/filter_config.json')
+    .doFilter(app)
+);
+
+//OAuth認証用
+app.use(passport.initialize());
+app.use(passport.session());
 
 // router setting
  var routesFileNameList = fs.readdirSync(path.join(__dirname, 'routes'));

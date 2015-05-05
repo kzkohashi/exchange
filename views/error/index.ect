@@ -1,0 +1,21 @@
+<% extend 'layouts/base' %>
+<section>
+    <h1 style="margin:10px; margin-left:auto;"><%= @status %> Error, Stack Trace: </h1>
+    <pre style="word-wrap:break-word;overflow:scroll;">
+        <%= @stackTrace.stack %>
+    </pre>
+</section>
+
+<section>
+    <h1>
+        エラー
+    </h1>
+
+    <!-- エラー文章 -->
+    <div>
+        {{-content}}
+    </div>
+
+    <!-- ホームに戻るボタン -->
+    <a href="/">トップ</a>
+</section>

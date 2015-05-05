@@ -1,0 +1,15 @@
+{
+    "filters": {
+        "include_paths": [
+            "./lib/filters"
+        ],
+        "rules": [
+            {
+                "applies": ["/*"],
+                "ignores": ["login", "auth/facebook/*", "information/*", "room/*", "redirect", "/\\.[a-zA-z]*/"],
+                "name_space": "authentication_filter.index",
+                "as": "authentication"
+            }
+        ]
+    }
+}
