@@ -7,5 +7,8 @@
         "domain": "52.68.51.77",
         "mode": "production",
         "debug": false
+    },
+    "facebook": {
+        "appId": 791984410898171
     }
 }

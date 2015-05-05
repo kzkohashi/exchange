@@ -18,6 +18,7 @@ var RedisStore = require('connect-redis')(session);
 var ECT = require('ect');
 var fs = require('fs');
 var _ = require('underscore');
+var config = require('config');
 
 // create application
 var app = express();
@@ -73,6 +74,9 @@ _.each([__dirname + '/lib/views/helpers/', __dirname + '/views/helpers/'], funct
         });
     }
 });
+
+// set config to app.locals
+app.locals.facebook = config.get('facebook');
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
