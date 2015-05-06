@@ -1,6 +1,6 @@
 {
     "app": {
-        "title": "交換ネット",
+        "title": "交換NET",
         "baseUrl": "http://127.0.0.1",
         "staticFileUrl": "http://127.0.0.1",
         "imageUrl": "http://127.0.0.1",
