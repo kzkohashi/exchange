@@ -20,6 +20,7 @@ var fs = require('fs');
 var _ = require('underscore');
 var config = require('config');
 var passport = require('passport');
+var multer  = require('multer')
 
 // create application
 var app = express();
@@ -40,7 +41,7 @@ app.set('view engine', 'ect');
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -83,6 +84,9 @@ _.each(routesFileNameList, function(routesFileName) {
     require('./routes/' + routesFileName).init(router);
 });
 app.use(router);
+
+// handling multipart/form-data
+app.use(multer());
 
 //set helpers to app.locals
 _.each([__dirname + '/lib/views/helpers/', __dirname + '/views/helpers/'], function(path) {

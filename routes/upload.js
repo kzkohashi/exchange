@@ -19,4 +19,33 @@ exports.init = function(router) {
             response.render('upload/index', result);
         });
     });
+
+    router.post('/upload/execute', function(request, response) {
+
+        var data = request.body;
+        var title = data.title;
+        var description = data.description;
+        var price = parseInt(data.price);
+        var brandId = parseInt(data.brandId);
+        var bagTypeId = parseInt(data.bagTypeId);
+console.log(request.body);
+console.log(request.files);
+        uploadFacade.execute({
+            userId: request.session.userId,
+            title: title,
+            description: description,
+            price: price,
+            brandId: brandId,
+            bagTypeId: bagTypeId,
+            filePath: request.files.image.path,
+            fileType: request.files.image.type
+        }, function(error, result) {
+            if (error) {
+                errorHandler.invalidRequest(response, error);
+                return;
+            }
+            console.log(result);
+            response.render('upload/index', result);
+        });
+    });
 }

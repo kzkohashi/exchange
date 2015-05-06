@@ -12,5 +12,11 @@
         "appId": 791984410898171,
         "appSecret": "53090097ca2f68baa98ffc46266780bc",
         "callbackUrl": "http://52.68.51.77/auth/facebook/callback"
+    },
+    "s3": {
+        "accessKeyId": "AKIAIBIEYKDVVPJODZGA",
+        "secretAccessKey": "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",
+        "bucket": "exchangenet",
+        "region": "ap-northeast-1"
     }
 }
