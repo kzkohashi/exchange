@@ -97,6 +97,7 @@ _.each([__dirname + '/lib/views/helpers/', __dirname + '/views/helpers/'], funct
 });
 
 // set config to app.locals
+app.locals.title = config.get('app.title');
 app.locals.facebook = config.get('facebook');
 
 // catch 404 and forward to error handler

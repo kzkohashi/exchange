@@ -1,1 +1,85 @@
 <% extend 'layouts/base' %>
+<!-- Page Content -->
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <p class="lead">Brand</p>
+            <div class="list-group">
+                <% for brand in @brandList : %>
+                <a href="#" class="list-group-item"><%= brand.name %></a>
+                <% end %>
+            </div>
+
+            <p class="lead">Bag Type</p>
+            <div class="list-group">
+                <% for bagType in @bagTypeList : %>
+                <a href="#" class="list-group-item"><%= bagType.name %></a>
+                <% end %>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <!-- ユーザーデータ -->
+            <div class="row">
+
+                <div class="col-sm-4 col-lg-4 col-md-4">
+                    <div class="thumbnail">
+                        <img src="<%= @user.imagePath %>" alt="">
+                        <div class="caption">
+                            <h4 class="pull-right">$24.99</h4>
+                            <h4><a href="#"><%= @user.username %></a>
+                            </h4>
+                            <p>ユーザーのコメント入れる</p>
+                        </div>
+                        <div class="ratings">
+                            <p class="pull-right">15 reviews</p>
+                            <p>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 商品データ -->
+            <div class="row">
+
+                <div class="col-sm-4 col-lg-4 col-md-4">
+                    <div class="thumbnail">
+                        <img src="http://placehold.it/320x150" alt="">
+                        <div class="caption">
+                            <h4 class="pull-right">20万円</h4>
+                            <h4><a href="#">COACHのバッグ</a>
+                            </h4>
+                            <p>商品の状態　原価２０万です。</p>
+                        </div>
+                        <div class="ratings">
+                            <p class="pull-right">15 reviews</p>
+                            <p>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- /.container -->

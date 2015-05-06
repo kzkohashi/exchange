@@ -12,7 +12,7 @@ exports.init = function(router) {
           userId: request.session.userId
         }, function(error, result) {
             if (error) {
-                callback(error);
+                errorHandler.invalidRequest(response, error);
                 return;
             }
             console.log(result);

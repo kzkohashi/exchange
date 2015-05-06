@@ -96,7 +96,7 @@ exports.init = function(router) {
             }
         ], function(error, userId) {
             if (error) {
-                errorHandler.invalidrequestuest(response, error);
+                errorHandler.invalidRequest(response, error);
                 return;
             }
             request.session.userId = userId;

@@ -17,11 +17,10 @@
         <% include 'elements/facebook' %>
 
         <!-- jQuery -->
-        <script src="bootstrap/js/jquery.js"></script>
+        <%- @loader.js('/bootstrap/js/jquery.js') %>
 
         <!-- Bootstrap Core JavaScript -->
-        <script src="bootstrap/js/bootstrap.min.js"></script>
-
+        <%- @loader.js('/bootstrap/js/bootstrap.min.js') %>
         <!-- Facebook JavaScript SDK -->
         <%- @loader.js('/javascripts/lib/facebook_sdk.js') %>
     </body>
