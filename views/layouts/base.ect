@@ -2,6 +2,12 @@
 <html>
     <head>
         <title><%= @title %></title>
+        <!-- jQuery -->
+        <%- @loader.js('/bootstrap/js/jquery.js') %>
+
+        <!-- Bootstrap Core JavaScript -->
+        <%- @loader.js('/bootstrap/js/bootstrap.min.js') %>
+
         <!-- global paramete setting -->
         <% include 'elements/global_setting' %>
 
@@ -16,11 +22,6 @@
         <% include 'elements/footer' %>
         <% include 'elements/facebook' %>
 
-        <!-- jQuery -->
-        <%- @loader.js('/bootstrap/js/jquery.js') %>
-
-        <!-- Bootstrap Core JavaScript -->
-        <%- @loader.js('/bootstrap/js/bootstrap.min.js') %>
         <!-- Facebook JavaScript SDK -->
         <%- @loader.js('/javascripts/lib/facebook_sdk.js') %>
     </body>

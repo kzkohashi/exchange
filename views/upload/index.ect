@@ -70,6 +70,24 @@
                         </select>
                   </div>
                 </div>
+
+                <!-- 画像 -->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Image</label>
+                    <div class="col-sm-10">
+                        <input id="lefile" class="form-control" type="file" style="display:none">
+                    </div>
+                    <div class="input-append">
+                        <input id="photoCover" class="input-large" type="text">
+                        <a class="btn" onclick="$('input[id=lefile]').click();">Browse</a>
+                    </div>
+
+                    <script type="text/javascript">
+                        $('input[id=lefile]').change(function() {
+                            $('#photoCover').val($(this).val());
+                        });
+                    </script>
+                </div>
           </form>
           </div>
     </div>
