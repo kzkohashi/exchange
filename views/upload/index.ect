@@ -1,0 +1,76 @@
+<% extend 'layouts/base' %>
+<!-- Page Content -->
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <p class="lead">Brand</p>
+            <div class="list-group">
+                <% for brand in @brandList : %>
+                <a href="#" class="list-group-item"><%= brand.name %></a>
+                <% end %>
+            </div>
+
+            <p class="lead">Bag Type</p>
+            <div class="list-group">
+                <% for bagType in @bagTypeList : %>
+                <a href="#" class="list-group-item"><%= bagType.name %></a>
+                <% end %>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <form class="form-horizontal" role="form">
+
+                <!-- 商品名 -->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">商品名</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" placeholder="CAOCH, LOUIS VUITTON, Chloe ... ">
+                    </div>
+                </div>
+
+                <!-- 原価 -->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">原価</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" placeholder="10万円">
+                    </div>
+                </div>
+
+                <!-- 商品説明 -->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">商品の説明</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" rows="3"></textarea>
+                    </div>
+                </div>
+
+                <!-- ブランド -->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Brand</label>
+                    <div class="col-sm-10">
+                        <select class="form-control">
+                            <% for brand in @brandList : %>
+                                <option><%= brand.name %></option>
+                            <% end %>
+                        </select>
+                  </div>
+                </div>
+
+                <!-- バッグタイプ -->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Bag Type</label>
+                    <div class="col-sm-10">
+                        <select class="form-control">
+                            <% for bagType in @bagTypeList : %>
+                                <option><%= bagType.name %></option>
+                            <% end %>
+                        </select>
+                  </div>
+                </div>
+          </form>
+          </div>
+    </div>
+</div>
