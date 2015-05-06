@@ -5,11 +5,18 @@
     <div class="row">
 
         <div class="col-md-3">
-            <p class="lead">Shop Name</p>
+            <p class="lead">Brand List</p>
             <div class="list-group">
-                <a href="#" class="list-group-item">Category 1</a>
-                <a href="#" class="list-group-item">Category 2</a>
-                <a href="#" class="list-group-item">Category 3</a>
+                <% for brand in @brandList : %>
+                <a href="#" class="list-group-item"><%= brand.name %></a>
+                <% end %>
+            </div>
+
+            <p class="lead">Bag Type List</p>
+            <div class="list-group">
+                <% for bagType in @bagTypeList : %>
+                <a href="#" class="list-group-item"><%= bagType.name %></a>
+                <% end %>
             </div>
         </div>
 
