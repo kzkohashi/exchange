@@ -2,6 +2,9 @@
  * @fileOverview top page
  */
 
+// error handler
+var errorHandler = require('errors/error');
+
 // facade
 var indexFacade = require('models/facade/index_facade');
 

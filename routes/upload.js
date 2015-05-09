@@ -2,6 +2,9 @@
  * @fileOverview upload page
  */
 
+ // error handler
+var errorHandler = require('errors/error');
+
 // facade
 var uploadFacade = require('models/facade/upload_facade');
 
@@ -28,7 +31,7 @@ exports.init = function(router) {
         var price = parseInt(data.price);
         var brandId = parseInt(data.brandId);
         var bagTypeId = parseInt(data.bagTypeId);
-console.log(request.body);
+console.log(data);
 console.log(request.files);
         uploadFacade.execute({
             userId: request.session.userId,
@@ -38,7 +41,8 @@ console.log(request.files);
             brandId: brandId,
             bagTypeId: bagTypeId,
             filePath: request.files.image.path,
-            fileType: request.files.image.type
+            fileType: request.files.image.mimetype,
+            currentDatetime: request.currentDatetime
         }, function(error, result) {
             if (error) {
                 errorHandler.invalidRequest(response, error);
