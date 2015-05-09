@@ -3,7 +3,7 @@
         "title": "交換NET",
         "baseUrl": "http://52.68.51.77",
         "staticFileUrl": "http://52.68.51.77",
-        "imageUrl": "http://52.68.51.77",
+        "imageUrl": "https://s3-ap-northeast-1.amazonaws.com/exchangenet",
         "domain": "52.68.51.77",
         "mode": "production",
         "debug": false
