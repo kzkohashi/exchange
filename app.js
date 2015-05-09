@@ -81,7 +81,7 @@ app.use(passport.session());
  var routesFileNameList = fs.readdirSync(path.join(__dirname, 'routes'));
 _.each(routesFileNameList, function(routesFileName) {
     var routesFileName = routesFileName.replace('.js', '');
-    require('./routes/' + routesFileName).init(router);
+    require(__dirname + '/routes/' + routesFileName).init(router);
 });
 app.use(router);
 
