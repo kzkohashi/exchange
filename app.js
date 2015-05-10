@@ -49,6 +49,7 @@ app.use(multer());
 // Attached some objects and vars to request object.
 app.use(function(request, response, callback) {
     request.currentDatetime = new Date();
+    callback();
 });
 
 // session
