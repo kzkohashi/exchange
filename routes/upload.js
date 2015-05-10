@@ -26,7 +26,6 @@ exports.init = function(router) {
     router.post('/upload/execute', function(request, response) {
 
         var data = request.body;
-        var title = data.title;
         var description = data.description;
         var price = parseInt(data.price);
         var brandId = parseInt(data.brandId);
@@ -34,7 +33,6 @@ exports.init = function(router) {
 
         uploadFacade.execute({
             userId: request.session.userId,
-            title: title,
             description: description,
             price: price,
             brandId: brandId,
