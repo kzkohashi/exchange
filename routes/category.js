@@ -1,18 +1,21 @@
 /**
- * @fileOverview top page
+ * @fileOverview category page
  */
 
 // error handler
 var errorHandler = require('errors/error');
 
 // facade
-var indexFacade = require('models/facade/index_facade');
+var categoryFacade = require('models/facade/category_facade');
 
 exports.init = function(router) {
 
-    router.get('/', function(request, response) {
+    router.get('/category/brand', function(request, response) {
 
         // validation
+        if (request.param('brandId')) {
+            request.assert('brandId').isInt();
+        }
         if (request.param('offset')) {
             request.assert('offset').isInt();
         }
@@ -27,6 +30,11 @@ exports.init = function(router) {
         }
 
         // sanitize
+        var brandId = null;
+        if (request.param('brandId')) {
+            request.sanitize('brandId').toInt();
+            brandId = request.param('brandId')
+        }
         var offset = 0;
         if (request.param('offset')) {
             request.sanitize('offset').toInt();
@@ -38,8 +46,9 @@ exports.init = function(router) {
             limit = request.param('limit')
         }
 
-        indexFacade.index({
+        categoryFacade.index({
           userId: request.session.userId,
+          brandId: brandId,
           offset: offset,
           limit: limit,
           currentDatetime: request.currentDatetime
@@ -48,6 +57,7 @@ exports.init = function(router) {
                 errorHandler.index(response, error);
                 return;
             }
+            console.log(result)
             response.render('index', result);
         });
     });
