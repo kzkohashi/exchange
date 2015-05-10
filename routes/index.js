@@ -9,10 +9,13 @@ var errorHandler = require('errors/error');
 var indexFacade = require('models/facade/index_facade');
 
 exports.init = function(router) {
-    /* GET home page. */
+
     router.get('/', function(request, response) {
         indexFacade.index({
-          userId: request.session.userId
+          userId: request.session.userId,
+          offset: offset,
+          limit: limit,
+          currentDatetime: request.currentDatetime
         }, function(error, result) {
             if (error) {
                 errorHandler.invalidRequest(response, error);

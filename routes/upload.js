@@ -31,8 +31,7 @@ exports.init = function(router) {
         var price = parseInt(data.price);
         var brandId = parseInt(data.brandId);
         var bagTypeId = parseInt(data.bagTypeId);
-console.log(data);
-console.log(request.files);
+
         uploadFacade.execute({
             userId: request.session.userId,
             title: title,
@@ -48,8 +47,7 @@ console.log(request.files);
                 errorHandler.invalidRequest(response, error);
                 return;
             }
-            console.log(result);
-            response.render('upload/index', result);
+            response.redirect('/');
         });
     });
 }
