@@ -3,7 +3,7 @@
         "title": "交換NET",
         "baseUrl": "http://127.0.0.1",
         "staticFileUrl": "http://127.0.0.1",
-        "imageUrl": "https://s3-ap-northeast-1.amazonaws.com/exchangenetlocal",
+        "imageUrl": "https://s3-ap-northeast-1.amazonaws.com/exchangenetlocal/",
         "domain": "127.0.0.1",
         "mode": "local",
         "debug": false
