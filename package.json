@@ -16,6 +16,7 @@
     "ect": "^0.5.9",
     "express": "~4.12.2",
     "express-session": "^1.11.1",
+    "express-validator": "^2.10.0",
     "mongoose": "^4.0.2",
     "mongoose-auto-increment": "^4.0.0",
     "morgan": "~1.5.1",
