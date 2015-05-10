@@ -46,7 +46,7 @@ exports.init = function(router) {
             limit = request.param('limit')
         }
 
-        categoryFacade.index({
+        categoryFacade.brand({
           userId: request.session.userId,
           brandId: brandId,
           offset: offset,
