@@ -10,9 +10,12 @@ var userFacade = require('models/facade/user_facade');
 
 exports.init = function(router) {
     /* GET home page. */
-    router.get('/user/:userPageId', function(request, response) {
+    router.get('/user', function(request, response) {
 
         // validation
+        if (request.param('userId')) {
+            request.assert('userId').isInt();
+        }
         if (request.param('offset')) {
             request.assert('offset').isInt();
         }
@@ -27,6 +30,11 @@ exports.init = function(router) {
         }
 
         // sanitize
+        var userId = null;
+        if (request.param('userId')) {
+            request.sanitize('userId').toInt();
+            userId = request.param('userId')
+        }
         var offset = 0;
         if (request.param('offset')) {
             request.sanitize('offset').toInt();
@@ -42,7 +50,7 @@ exports.init = function(router) {
             userId: request.session.userId,
             offset: offset,
             limit: limit,
-            userPageId: parseInt(request.param('userPageId'))
+            userPageId: userId
         }, function(error, result) {
             if (error) {
                 errorHandler.invalidRequest(response, error);

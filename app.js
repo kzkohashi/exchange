@@ -48,12 +48,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(multer());
 app.use(expressValidator());
 
-// Attached some objects and vars to request object.
-app.use(function(request, response, callback) {
-    request.currentDatetime = new Date();
-    callback();
-});
-
 // session
 app.use(session({
     store: new MongoStore({
@@ -70,6 +64,13 @@ app.use(session({
         path : '/'
     }
 }));
+
+// Attached some objects and vars to request object.
+app.use(function(request, response, callback) {
+    request.currentDatetime = new Date();
+    app.locals.userId = request.session.userId;
+    callback();
+});
 
 // filter setting
 app.use(
