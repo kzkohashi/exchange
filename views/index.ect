@@ -42,28 +42,8 @@
 
             <div class="row">
                 <% for userGoods in @userGoodsList : %>
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="<%= userGoods.imagePath %>" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right"><%= userGoods.price %>円</h4>
-                                <h4><a href="#"><%= userGoods.brandName %></a>
-                                </h4>
-                                <h5><%= userGoods.bagTypeName %></h5>
-                                <p><%= userGoods.description %></p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">15 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- user goods -->
+                    <% include 'elements/user_goods', {userGoods: userGoods} %>
                 <% end %>
 
                 <div class="col-sm-4 col-lg-4 col-md-4">
