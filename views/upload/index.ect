@@ -4,21 +4,8 @@
 
     <div class="row">
 
-        <div class="col-md-3">
-            <p class="lead">Brand</p>
-            <div class="list-group">
-                <% for brand in @brandList : %>
-                <a href="#" class="list-group-item"><%= brand.name %></a>
-                <% end %>
-            </div>
-
-            <p class="lead">Bag Type</p>
-            <div class="list-group">
-                <% for bagType in @bagTypeList : %>
-                <a href="#" class="list-group-item"><%= bagType.name %></a>
-                <% end %>
-            </div>
-        </div>
+        <!-- side menu -->
+        <% include 'elements/side_menu' %>
 
         <div class="col-md-9">
             <form class="form-horizontal" role="form" action="/upload/execute", method="POST", enctype="multipart/form-data">
