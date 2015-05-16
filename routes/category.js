@@ -47,17 +47,16 @@ exports.init = function(router) {
         }
 
         categoryFacade.brand({
-          userId: request.session.userId,
-          brandId: brandId,
-          offset: offset,
-          limit: limit,
-          currentDatetime: request.currentDatetime
+            userId: request.session.userId,
+            brandId: brandId,
+            offset: offset,
+            limit: limit,
+            currentDatetime: request.currentDatetime
         }, function(error, result) {
             if (error) {
                 errorHandler.index(response, error);
                 return;
             }
-            console.log(result)
             response.render('index', result);
         });
     });
@@ -99,11 +98,11 @@ exports.init = function(router) {
         }
 
         categoryFacade.bagType({
-          userId: request.session.userId,
-          bagTypeId: bagTypeId,
-          offset: offset,
-          limit: limit,
-          currentDatetime: request.currentDatetime
+            userId: request.session.userId,
+            bagTypeId: bagTypeId,
+            offset: offset,
+            limit: limit,
+            currentDatetime: request.currentDatetime
         }, function(error, result) {
             if (error) {
                 errorHandler.index(response, error);
