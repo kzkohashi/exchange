@@ -7,7 +7,9 @@
             <h4 class="pull-right"><%= @userGoods.price %>円</h4>
             <h4><a href="/category/brand?brandId=<%= @userGoods.brandId %>"><%= @userGoods.brandName %></a>
             </h4>
+            <a href="/category/bag_type?bagTypeId=<%= @userGoods.bagTypeId %>">
             <h5><%= @userGoods.bagTypeName %></h5>
+            </a>
             <p><%= @userGoods.description %></p>
         </div>
         <div class="ratings">
