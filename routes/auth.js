@@ -9,9 +9,6 @@ var async = require('async');
 //dao
 var userDao = require('models/dao/user_dao');
 
-// var helper    = requestuire('helpers/applicationHelper');
-// var mailer    = requestuire('mailer/applicationMailer');
-
 // error handler
 var errorHandler = require('errors/error');
 
@@ -20,30 +17,30 @@ var passport = require('passport');
 var FacebookStrategy = require('passport-facebook-canvas');
 var TwitterStrategy = require('passport-twitter').Strategy;
 
+//OAuth認証用
+passport.use(new FacebookStrategy({
+    clientID: config.get('facebook.appId'),
+    clientSecret: config.get('facebook.appSecret'),
+    callbackURL: config.get('facebook.callbackUrl'),
+}, function(accessToken, refresponsehToken, profile, callback){
+    passport.session.accessToken = accessToken;
+    process.nextTick(function(){
+        callback(null, profile);
+    });
+}));
+
+passport.serializeUser(function(user, callback){
+    callback(null, user);
+});
+
+passport.deserializeUser(function(obj, callback){
+    callback(null, obj);
+});
+
 exports.init = function(router) {
 
     router.get('/auth', function(request, response) {
         response.render('auth');
-    });
-
-    //OAuth認証用
-    passport.use(new FacebookStrategy({
-        clientID: config.get('facebook.appId'),
-        clientSecret: config.get('facebook.appSecret'),
-        callbackURL: config.get('facebook.callbackUrl'),
-    }, function(accessToken, refresponsehToken, profile, callback){
-        passport.session.accessToken = accessToken;
-        process.nextTick(function(){
-            callback(null, profile);
-        });
-    }));
-
-    passport.serializeUser(function(user, callback){
-        callback(null, user);
-    });
-
-    passport.deserializeUser(function(obj, callback){
-        callback(null, obj);
     });
 
     // /authにアクセスする事で、facebook認証につながる。
