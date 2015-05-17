@@ -17,30 +17,35 @@ var passport = require('passport');
 var FacebookStrategy = require('passport-facebook-canvas');
 var TwitterStrategy = require('passport-twitter').Strategy;
 
-//OAuth認証用
-passport.use(new FacebookStrategy({
-    clientID: config.get('facebook.appId'),
-    clientSecret: config.get('facebook.appSecret'),
-    callbackURL: config.get('facebook.callbackUrl'),
-}, function(accessToken, refresponsehToken, profile, callback){
-    passport.session.accessToken = accessToken;
-    process.nextTick(function(){
-        callback(null, profile);
-    });
-}));
-
-passport.serializeUser(function(user, callback){
-    callback(null, user);
-});
-
-passport.deserializeUser(function(obj, callback){
-    callback(null, obj);
-});
-
 exports.init = function(router) {
 
     router.get('/auth', function(request, response) {
         response.render('auth');
+    });
+
+    router.get('/auth/logout', function(request, response) {
+        request.session.destroy();
+        response.redirect('/auth');
+    });
+
+    //OAuth認証用
+    passport.use(new FacebookStrategy({
+        clientID: config.get('facebook.appId'),
+        clientSecret: config.get('facebook.appSecret'),
+        callbackURL: config.get('facebook.callbackUrl'),
+    }, function(accessToken, refresponsehToken, profile, callback){
+        passport.session.accessToken = accessToken;
+        process.nextTick(function(){
+            callback(null, profile);
+        });
+    }));
+
+    passport.serializeUser(function(user, callback){
+        callback(null, user);
+    });
+
+    passport.deserializeUser(function(obj, callback){
+        callback(null, obj);
     });
 
     // /authにアクセスする事で、facebook認証につながる。
@@ -96,6 +101,8 @@ exports.init = function(router) {
                 errorHandler.invalidRequest(response, error);
                 return;
             }
+            console.log('99999999999999')
+            console.log(request.session);
             request.session.userId = userId;
             response.redirect('/');
         });

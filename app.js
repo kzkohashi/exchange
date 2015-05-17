@@ -55,11 +55,11 @@ app.use(session({
         db: 'exchange_session_user'
     }),
     secret: 'keyboard cat',
-    resave: false,
+    resave: true,
     saveUninitialized: true,
     cookie: {
         maxAge: 7 * 24 * 60 * 60 * 1000, // a week
-        secure: true,
+        secure: false,
         httpOnly : true,
         path : '/'
     }
