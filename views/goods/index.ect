@@ -13,8 +13,9 @@
                 <% include 'elements/user_goods', {userGoods: @userGoods} %>
             </div>
 
+            <div class="list-group row">
             <% for comment in @commentList : %>
-                <div class="col-sm-12 col-lg-12 col-md-12">
+                <div class="col-sm-12 col-lg-12 col-md-12 list-group-item">
                     <label class="col-sm-2 control-label">
                         <img src="<%= comment.user.imagePath %>" alt="">
                         <p><%= comment.user.username%></p>
@@ -24,13 +25,14 @@
                     </div>
                 </div>
             <% end %>
+            </div>
 
             <form class="form-horizontal" role="form" action="/goods/comment", method="POST", enctype="multipart/form-data">
                 <input type="hidden" name="userGoodsId" value="<%= @userGoods.id%>">
                 <!-- コメント -->
                 <div class="form-group">
                     <div class="col-sm-12">
-                        <textarea name="comment" class="form-control" rows="3"></textarea>
+                        <textarea name="comment" class="form-control" rows="3" placeholder="ここにコメントを記入"></textarea>
                     </div>
                 </div>
 
