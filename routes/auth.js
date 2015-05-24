@@ -55,6 +55,11 @@ exports.init = function(router) {
                 errorHandler.invalidRequest(response, error);
                 return;
             }
+
+            if (result.invalidLogin) {
+                response.redirect('/auth');
+                return;
+            }
             request.session.userId = result.userId;
             response.redirect('/');
         });
