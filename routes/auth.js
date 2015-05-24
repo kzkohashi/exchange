@@ -46,6 +46,20 @@ exports.init = function(router) {
         response.render('auth');
     });
 
+    router.post('/auth/login', function(request, response) {
+        authFacade.login({
+            loginId: request.param('loginId'),
+            passward: request.param('passward')
+        }, function(error, result) {
+            if (error) {
+                errorHandler.invalidRequest(response, error);
+                return;
+            }
+            request.session.userId = result.userId;
+            response.redirect('/');
+        });
+    });
+
     router.get('/auth/logout', function(request, response) {
         request.session.destroy();
         response.redirect('/auth');
