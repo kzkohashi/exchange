@@ -10,6 +10,9 @@
             <a href="/category/bag_type?bagTypeId=<%= @userGoods.bagTypeId %>">
             <h5><%= @userGoods.bagTypeName %></h5>
             </a>
+            <a href="/user?userId=<%= @userGoods.user.id %>">
+            <p><%= @userGoods.user.name %></p>
+            </a>
             <p><%= @userGoods.description %></p>
         </div>
         <div class="ratings">
