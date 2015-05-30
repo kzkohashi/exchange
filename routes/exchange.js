@@ -6,7 +6,7 @@
 var errorHandler = require('errors/error');
 
 // facade
-var exchangeFacade = require('models/facade/echange_facade');
+var exchangeFacade = require('models/facade/exchange_facade');
 
 exports.init = function(router) {
 
@@ -19,7 +19,7 @@ exports.init = function(router) {
                 errorHandler.index(response, error);
                 return;
             }
-            response.render('goods/index', result);
+            response.render('exchange/list', result);
         });
     });
 
