@@ -1,0 +1,20 @@
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">タイトル</h4>
+            </div>
+            <div class="modal-body">
+                <% for userGoods in @userGoodsList : %>
+                    <!-- user goods -->
+                    <% include 'elements/user_goods', {userGoods: userGoods} %>
+                <% end %>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                <button type="button" class="btn btn-primary">保存</button>
+            </div>
+        </div>
+    </div>
+</div>

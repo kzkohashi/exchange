@@ -47,7 +47,7 @@ exports.init = function(router) {
             if (error) {
                 errorHandler.index(response, error);
                 return;
-            }
+            }console.log(result)
             response.render('index', result);
         });
     });
