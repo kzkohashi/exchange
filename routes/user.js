@@ -56,7 +56,6 @@ exports.init = function(router) {
                 errorHandler.invalidRequest(response, error);
                 return;
             }
-            console.log(result)
             response.render('user/index', result);
         });
     });
