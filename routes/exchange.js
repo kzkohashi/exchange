@@ -19,14 +19,17 @@ exports.init = function(router) {
                 errorHandler.index(response, error);
                 return;
             }
-            console.log(result)
+            // console.log(result)
             response.render('exchange/list', result);
         });
     });
 
-    router.post('/exchange/request', function(request, response) {
+    router.get('/exchange/request', function(request, response) {
 
         // validation
+        if (request.param('hostUserId')) {
+            request.assert('hostUserId').isInt();
+        }
         if (request.param('userGoodsId')) {
             request.assert('userGoodsId').isInt();
         }
@@ -41,6 +44,12 @@ exports.init = function(router) {
         }
 
         // sanitize
+        var hostUserId = null;
+        if (request.param('hostUserId')) {
+            request.sanitize('hostUserId').toInt();
+            hostUserId = request.param('hostUserId');
+        }
+
         var userGoodsId = null;
         if (request.param('userGoodsId')) {
             request.sanitize('userGoodsId').toInt();
@@ -54,6 +63,7 @@ exports.init = function(router) {
         }
 
         exchangeFacade.request({
+            hostUserId: hostUserId,
             userId: request.session.userId,
             userGoodsId: userGoodsId,
             exchangeUserGoodsId: exchangeUserGoodsId,
@@ -63,6 +73,7 @@ exports.init = function(router) {
                 errorHandler.index(response, error);
                 return;
             }
+            // console.log(result);
             response.redirect('/goods?userGoodsId=' + userGoodsId);
         });
     });
