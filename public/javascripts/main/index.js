@@ -9,29 +9,29 @@ require([
             '': 'index'
         },
         initialize: function() {
-
+            var hostUserId;
+            var userGoodsId;
             $(document).on('click', '.btn-exchange', function(){
-                console.log('11111111111');
                 var $el = $(this);
-                var userGoodsId = $el.data('user-goods-id');
-                var hostUserId = $el.data('host-user-id');
-                $('.btn-exchange-request').click(function(){
-                    var exchangeUserGoodsId = $el.data('exchange-user-goods-id');
-                    console.log(userGoodsId);
-                    $.ajax({
-                        type: 'GET',
-                        url: '/exchange/request',
-                        data: {
-                            // _csrf: $('meta[name=csrf-token]').attr('content'),
-                            hostUserId: hostUserId,
-                            userGoodsId: userGoodsId,
-                            exchangeUserGoodsId: exchangeUserGoodsId
-                        },
-                        success: function(data) {
-                        },
-                        error: function(){
-                        }
-                    });
+                userGoodsId = $el.data('user-goods-id');
+                hostUserId = $el.data('host-user-id');
+            });
+            $('.btn-exchange-request').click(function() {
+                var $el = $(this);
+                var exchangeUserGoodsId = $el.data('exchange-user-goods-id');
+                $.ajax({
+                    type: 'GET',
+                    url: '/exchange/request',
+                    data: {
+                        // _csrf: $('meta[name=csrf-token]').attr('content'),
+                        hostUserId: hostUserId,
+                        userGoodsId: userGoodsId,
+                        exchangeUserGoodsId: exchangeUserGoodsId
+                    },
+                    success: function(data) {
+                    },
+                    error: function(){
+                    }
                 });
             });
         },
