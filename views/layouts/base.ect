@@ -2,6 +2,9 @@
 <html>
     <head>
         <title><%= @title %></title>
+        <!-- base setting -->
+        <%- @loader.js('/javascripts/config/base_setting.js') %>
+
         <!-- jQuery -->
         <%- @loader.js('/bootstrap/js/jquery.js') %>
 
