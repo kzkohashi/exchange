@@ -25,7 +25,6 @@ configure.add('requirejsSettings',
         baseUrl: '/javascripts/lib',
         paths: {
             'backbone': 'backbone-min',
-            'bootstrap': 'bootstrap.min',
             'jquery': 'jquery.min',
             'underscore': 'underscore-min'
         },
