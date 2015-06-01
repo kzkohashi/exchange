@@ -27,14 +27,8 @@ exports.init = function(router) {
     router.get('/exchange/request', function(request, response) {
 
         // validation
-        if (request.param('hostUserId')) {
-            request.assert('hostUserId').isInt();
-        }
-        if (request.param('userGoodsId')) {
-            request.assert('userGoodsId').isInt();
-        }
-        if (request.param('exchangeUserGoodsId')) {
-            request.assert('exchangeUserGoodsId').isInt();
+        if (request.param('userExchangeGoodsSequenceId')) {
+            request.assert('userExchangeGoodsSequenceId').isInt();
         }
 
         var errors = request.validationErrors();
@@ -44,29 +38,15 @@ exports.init = function(router) {
         }
 
         // sanitize
-        var hostUserId = null;
-        if (request.param('hostUserId')) {
-            request.sanitize('hostUserId').toInt();
-            hostUserId = request.param('hostUserId');
+        var userExchangeGoodsSequenceId = null;
+        if (request.param('userExchangeGoodsSequenceId')) {
+            request.sanitize('userExchangeGoodsSequenceId').toInt();
+            hostUserId = request.param('userExchangeGoodsSequenceId');
         }
 
-        var userGoodsId = null;
-        if (request.param('userGoodsId')) {
-            request.sanitize('userGoodsId').toInt();
-            userGoodsId = request.param('userGoodsId');
-        }
-
-        var exchangeUserGoodsId = null;
-        if (request.param('exchangeUserGoodsId')) {
-            request.sanitize('exchangeUserGoodsId').toInt();
-            exchangeUserGoodsId = request.param('exchangeUserGoodsId');
-        }
-
-        exchangeFacade.request({
-            hostUserId: hostUserId,
+        exchangeFacade.reject({
             userId: request.session.userId,
-            userGoodsId: userGoodsId,
-            exchangeUserGoodsId: exchangeUserGoodsId,
+            userExchangeGoodsSequenceId: userExchangeGoodsSequenceId,
             currentDatetime: request.currentDatetime
         }, function(error, result) {
             if (error) {
