@@ -110,4 +110,37 @@ exports.init = function(router) {
             response.redirect('/goods?userGoodsId=' + userGoodsId);
         });
     });
+
+    router.get('/exchange/approve', function(request, response) {
+
+        // validation
+        if (request.param('userExchangeGoodsSequenceId')) {
+            request.assert('userExchangeGoodsSequenceId').isInt();
+        }
+
+        var errors = request.validationErrors();
+        if (errors) {
+            errorHandler.invalidRequest(response, error);
+            return;
+        }
+
+        // sanitize
+        var userExchangeGoodsSequenceId = null;
+        if (request.param('userExchangeGoodsSequenceId')) {
+            request.sanitize('userExchangeGoodsSequenceId').toInt();
+            userExchangeGoodsSequenceId = request.param('userExchangeGoodsSequenceId');
+        }
+
+        exchangeFacade.approve({
+            userId: request.session.userId,
+            userExchangeGoodsSequenceId: userExchangeGoodsSequenceId,
+            currentDatetime: request.currentDatetime
+        }, function(error, result) {
+            if (error) {
+                errorHandler.index(response, error);
+                return;
+            }
+            response.redirect('/goods?userGoodsId=' + userGoodsId);
+        });
+    });
 }
