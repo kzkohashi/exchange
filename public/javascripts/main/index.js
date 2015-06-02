@@ -11,7 +11,7 @@ require([
         initialize: function() {
             var hostUserId;
             var userGoodsId;
-            $(document).on('click', '.btn-exchange', function(){
+            $('.btn-exchange').click(function() {
                 var $el = $(this);
                 userGoodsId = $el.data('user-goods-id');
                 hostUserId = $el.data('host-user-id');
@@ -23,7 +23,6 @@ require([
                     type: 'GET',
                     url: '/exchange/request',
                     data: {
-                        // _csrf: $('meta[name=csrf-token]').attr('content'),
                         hostUserId: hostUserId,
                         userGoodsId: userGoodsId,
                         exchangeUserGoodsId: exchangeUserGoodsId

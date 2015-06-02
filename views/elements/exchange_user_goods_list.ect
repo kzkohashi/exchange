@@ -8,12 +8,11 @@
             <div class="modal-body">
                 <% for userGoods in @userGoodsList : %>
                     <!-- user goods -->
-                    <% include 'elements/user_goods', {userGoods: userGoods} %>
+                    <% include 'elements/exchange_user_goods', {userGoods: userGoods} %>
                 <% end %>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-                <button type="button" class="btn btn-primary">保存</button>
             </div>
         </div>
     </div>
