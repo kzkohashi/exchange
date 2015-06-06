@@ -19,7 +19,6 @@ exports.init = function(router) {
                 errorHandler.index(response, error);
                 return;
             }
-            console.log(result)
             response.render('exchange/list', result);
         });
     });

@@ -20,12 +20,13 @@
                             </button>
                         </div>
                         <!-- user goods -->
-
                         <% include 'exchange/exchange_goods', {userExchangeGoods: userExchangeGoods} %>
                         </section>
                     <% end %>
                 <% end %>
+            </div>
 
+            <div class="row">
                 <!-- 承認されたもの -->
                 <p>交換成立したもの</p>
                 <% if @userExchangeGoodsMap[4] : %>
