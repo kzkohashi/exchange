@@ -30,7 +30,7 @@
                 <!-- 承認されたもの -->
                 <p>交換成立したもの</p>
                 <% if @userExchangeGoodsMap[4] : %>
-                    <% for userExchangeGoods in @userExchangeGoodsMap[2] : %>
+                    <% for userExchangeGoods in @userExchangeGoodsMap[4] : %>
                         <!-- user goods -->
                         <% include 'exchange/exchange_goods', {userExchangeGoods: userExchangeGoods} %>
                     <% end %>
