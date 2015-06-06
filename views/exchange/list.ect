@@ -8,7 +8,29 @@
         <% include 'elements/side_menu' %>
 
         <div class="col-md-9">
+           <div class="row">
+                <!-- 申請中 -->
+                <p>申請中</p>
+                <% if @userExchangeGoodsMap[1] : %>
+                    <% for userExchangeGoods in @userExchangeGoodsMap[1] : %>
 
+                        <!-- user goods -->
+                        <% include 'exchange/exchange_goods', {userExchangeGoods: userExchangeGoods} %>
+                    <% end %>
+                <% end %>
+
+                <!-- 承認されたもの -->
+                <p>承認されたもの</p>
+                <% if @userExchangeGoodsMap[3] : %>
+                    <% for userExchangeGoods in @userExchangeGoodsMap[2] : %>
+
+                        <!-- user goods -->
+                        <% include 'exchange/exchange_goods', {userExchangeGoods: userExchangeGoods} %>
+                    <% end %>
+                <% end %>
+
+
+            </div>
         </div>
 
     </div>

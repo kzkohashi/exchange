@@ -1,0 +1,57 @@
+<div class="col-sm-6 col-lg-6 col-md-6">
+    <div class="thumbnail col-sm-6 col-lg-6 col-md-6">
+        <a href="/goods?userGoodsId=<%= @userExchangeGoods.userGoods.id%>">
+        <img src="<%= @userExchangeGoods.userGoods.imagePath %>" alt="">
+        <a>
+        <div class="caption">
+            <h4 class="pull-right"><%= @userExchangeGoods.userGoods.price %>円</h4>
+            <h4><a href="/category/brand?brandId=<%= @userExchangeGoods.userGoods.brandId %>"><%= @userExchangeGoods.userGoods.brandName %></a>
+            </h4>
+            <a href="/category/bag_type?bagTypeId=<%= @userExchangeGoods.userGoods.bagTypeId %>">
+            <h5><%= @userExchangeGoods.userGoods.bagTypeName %></h5>
+            </a>
+            <a href="/user?userId=<%= @userExchangeGoods.userGoods.user.id %>">
+            <h6><%= @userExchangeGoods.userGoods.user.username %></h6>
+            </a>
+            <p><%= @userExchangeGoods.userGoods.description %></p>
+        </div>
+        <div class="ratings">
+            <p class="pull-right">15 reviews</p>
+            <p>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="thumbnail col-sm-6 col-lg-6 col-md-6">
+        <a href="/goods?userGoodsId=<%= @userExchangeGoods.exchangeUserGoods.id%>">
+        <img src="<%= @userExchangeGoods.exchangeUserGoods.imagePath %>" alt="">
+        <a>
+        <div class="caption">
+            <h4 class="pull-right"><%= @userExchangeGoods.exchangeUserGoods.price %>円</h4>
+            <h4><a href="/category/brand?brandId=<%= @userExchangeGoods.exchangeUserGoods.brandId %>"><%= @userExchangeGoods.exchangeUserGoods.brandName %></a>
+            </h4>
+            <a href="/category/bag_type?bagTypeId=<%= @userExchangeGoods.exchangeUserGoods.bagTypeId %>">
+            <h5><%= @userExchangeGoods.exchangeUserGoods.bagTypeName %></h5>
+            </a>
+            <a href="/user?userId=<%= @userExchangeGoods.exchangeUserGoods.user.id %>">
+            <h6><%= @userExchangeGoods.exchangeUserGoods.user.username %></h6>
+            </a>
+            <p><%= @userExchangeGoods.exchangeUserGoods.description %></p>
+        </div>
+        <div class="ratings">
+            <p class="pull-right">15 reviews</p>
+            <p>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+            </p>
+        </div>
+    </div>
+</div>
