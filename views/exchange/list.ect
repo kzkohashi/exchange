@@ -13,27 +13,32 @@
                 <p>申請中</p>
                 <% if @userExchangeGoodsMap[1] : %>
                     <% for userExchangeGoods in @userExchangeGoodsMap[1] : %>
-
+                        <section id='<%= userExchangeGoods.userExchangeGoods.userExchangeGoodsSequenceId%>'>
+                        <div class="">
+                            <button class="row btn btn-primary btn-exchange-request-cancel" data-user-exchange-goods-sequence-id='<%= userExchangeGoods.userExchangeGoods.userExchangeGoodsSequenceId%>'>
+                            キャンセル
+                            </button>
+                        </div>
                         <!-- user goods -->
+
                         <% include 'exchange/exchange_goods', {userExchangeGoods: userExchangeGoods} %>
+                        </section>
                     <% end %>
                 <% end %>
 
                 <!-- 承認されたもの -->
                 <p>交換成立したもの</p>
-                <% if @userExchangeGoodsMap[3] : %>
+                <% if @userExchangeGoodsMap[4] : %>
                     <% for userExchangeGoods in @userExchangeGoodsMap[2] : %>
-
                         <!-- user goods -->
                         <% include 'exchange/exchange_goods', {userExchangeGoods: userExchangeGoods} %>
                     <% end %>
                 <% end %>
-
-
             </div>
         </div>
-
     </div>
 
+    <!-- requirejs main -->
+    <script type='text/javascript' data-main='/javascripts/main/exchange.js' src='/javascripts/lib/requirejs.js'></script>
 </div>
 <!-- /.container -->
