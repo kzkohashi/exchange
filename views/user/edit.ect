@@ -15,11 +15,6 @@
                     <div class="thumbnail">
                         <img src="<%= @user.imagePath %>?type=large" alt="">
                         <div class="caption">
-                            <% if @isMypage : %>
-                            <a href="/user/edit">
-                                <button class="pull-right btn btn-primary">編集</button>
-                            </a>
-                            <% end %>
                             <h4><a href="#"><%= @user.username %></a>
                             </h4>
                             <p>ユーザーのコメント入れる</p>
@@ -40,15 +35,6 @@
                     </div>
                 </div>
 
-            </div>
-
-            <!-- 商品データ -->
-            <div class="row">
-
-                <% for userGoods in @userGoodsList : %>
-                    <!-- user goods -->
-                    <% include 'elements/user_goods', {userGoods: userGoods} %>
-                <% end %>
             </div>
 
         </div>

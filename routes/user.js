@@ -9,7 +9,7 @@ var errorHandler = require('errors/error');
 var userFacade = require('models/facade/user_facade');
 
 exports.init = function(router) {
-    /* GET home page. */
+
     router.get('/user', function(request, response) {
 
         // validation
@@ -57,6 +57,20 @@ exports.init = function(router) {
                 return;
             }
             response.render('user/index', result);
+        });
+    });
+
+    router.get('/user/edit', function(request, response) {
+
+        userFacade.edit({
+            userId: request.session.userId,
+            currentDatetime: request.currentDatetime
+        }, function(error, result) {
+            if (error) {
+                errorHandler.invalidRequest(response, error);
+                return;
+            }
+            response.render('user/edit', result);
         });
     });
 }
