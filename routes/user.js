@@ -73,4 +73,20 @@ exports.init = function(router) {
             response.render('user/edit', result);
         });
     });
+
+    router.get('/user/edit_image_path', function(request, response) {
+
+        userFacade.edit({
+            userId: request.session.userId,
+            filePath: request.files.image.path,
+            fileType: request.files.image.mimetype,
+            currentDatetime: request.currentDatetime
+        }, function(error, result) {
+            if (error) {
+                errorHandler.invalidRequest(response, error);
+                return;
+            }
+            response.render('user/edit', result);
+        });
+    });
 }

@@ -35,10 +35,35 @@
                     </div>
                 </div>
 
+                <div class="row">
+                <form class="form-horizontal" role="form" action="/user/edit_profile_image", method="POST", enctype="multipart/form-data">
+                    <!-- 画像 -->
+                    <div class="form-group">
+                        <label class="col-sm-2 col-lg-2 col-md-2 control-label">プロフィール画像</label>
+                        <div class="col-sm-0 col-lg-0 col-md-0">
+                            <input id="lefile" name="image" class="form-control" type="file" style="display:none">
+                        </div>
+                        <div class="input-append">
+                            <input id="photoCover" class="input-large" type="text">
+                            <a class="btn" onclick="$('input[id=lefile]').click();">Browse</a>
+                        </div>
+
+                        <script type="text/javascript">
+                            $('input[id=lefile]').change(function() {
+                                $('#photoCover').val($(this).val());
+                            });
+                        </script>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-lg-2 col-md-2 control-label"></label>
+                        <div class="col-sm-2 col-lg-2 col-md-2">
+                            <input type="submit" class="form-control">
+                        </div>
+                    </div>
+                </form>
+                </div>
             </div>
-
         </div>
-
     </div>
 
 </div>
