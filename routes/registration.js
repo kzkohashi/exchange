@@ -10,7 +10,7 @@ var indexFacade = require('models/facade/index_facade');
 
 exports.init = function(router) {
 
-    router.get('/', function(request, response) {
+    router.get('/registration', function(request, response) {
 
         // validation
         if (request.param('offset')) {
@@ -32,14 +32,13 @@ exports.init = function(router) {
             request.sanitize('offset').toInt();
             offset = request.param('offset')
         }
-        var limit = 12;
+        var limit = 20;
         if (request.param('limit')) {
             request.sanitize('limit').toInt();
             limit = request.param('limit')
         }
 
-        indexFacade.index({
-            userId: request.session.userId,
+        registrationFacade.index({
             offset: offset,
             limit: limit,
             currentDatetime: request.currentDatetime
@@ -48,7 +47,7 @@ exports.init = function(router) {
                 errorHandler.index(response, error);
                 return;
             }
-            response.render('index', result);
+            response.render('registration/index', result);
         });
     });
 }
