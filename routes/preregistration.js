@@ -47,7 +47,7 @@ exports.init = function(router) {
                 errorHandler.index(response, error);
                 return;
             }
-            response.render('registration/index', result);
+            response.render('preregistration/index', result);
         });
     });
 
@@ -129,7 +129,7 @@ exports.init = function(router) {
                 errorHandler.index(response, error);
                 return;
             }
-            response.render('registration/index', result);
+            response.render('preregistration/index', result);
         });
     });
 }

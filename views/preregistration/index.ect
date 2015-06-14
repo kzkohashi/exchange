@@ -1,0 +1,18 @@
+<% extend 'layouts/base' %>
+<!-- Page Content -->
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-9">
+
+            <div class="row">
+                <% for preregistrationGoods in @preregistrationGoodsList : %>
+                    <!-- user goods -->
+                    <% include 'elements/preregistraion_goods', {preregistrationGoods: preregistrationGoods} %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.container -->
