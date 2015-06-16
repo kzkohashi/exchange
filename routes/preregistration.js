@@ -52,45 +52,17 @@ exports.init = function(router) {
         });
     });
 
-    router.get('/preregistrationFacade/execute', function(request, response) {
-
-        // validation
-        if (request.param('offset')) {
-            request.assert('offset').isInt();
-        }
-        if (request.param('limit')) {
-            request.assert('limit').isInt();
-        }
-
-        var errors = request.validationErrors();
-        if (errors) {
-            errorHandler.invalidRequest(response, error);
-            return;
-        }
-
-        // sanitize
-        var offset = 0;
-        if (request.param('offset')) {
-            request.sanitize('offset').toInt();
-            offset = request.param('offset')
-        }
-        var limit = 20;
-        if (request.param('limit')) {
-            request.sanitize('limit').toInt();
-            limit = request.param('limit')
-        }
+    router.post('/preregistration/execute', function(request, response) {
 
         preregistrationFacade.execute({
-            offset: offset,
-            limit: limit,
+            email: request.param('email'),
             currentDatetime: request.currentDatetime
         }, function(error, result) {
             if (error) {
                 errorHandler.index(response, error);
                 return;
             }
-            pr(result)
-            response.render('preregistrationFacade/index', result);
+            response.redirect('/preregistration');
         });
     });
 
