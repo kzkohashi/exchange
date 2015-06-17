@@ -6,7 +6,13 @@
         "rules": [
             {
                 "applies": ["/*"],
-                "ignores": ["login", "auth/facebook/*", "information/*", "room/*", "redirect", "/\\.[a-zA-z]*/"],
+                "ignores": ["login", "preregistration", "/\\.[a-zA-z]*/"],
+                "name_space": "preregistration_filter.index",
+                "as": "preregistration"
+            },
+            {
+                "applies": ["/*"],
+                "ignores": ["login", "auth/facebook/*", "preregistration", "/\\.[a-zA-z]*/"],
                 "name_space": "authentication_filter.index",
                 "as": "authentication"
             }
