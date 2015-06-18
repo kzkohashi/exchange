@@ -47,7 +47,6 @@ exports.init = function(router) {
                 errorHandler.index(response, error);
                 return;
             }
-            console.log(result)
             response.render('preregistration/index', result);
         });
     });

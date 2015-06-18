@@ -10,15 +10,16 @@
     <div class="col-md-8 col-md-offset-2">
         事前登録して頂けると、サービスを本リリースした際にメールでご連絡します！！
     </div>
-
+    <div class="col-md-12">
+    　
+    </div>
     <div class="col-md-12">
         <form class="form-inline" role="form" action="/preregistration/execute", method="POST">
 
             <!-- email address -->
             <div class="form-group col-md-3 col-md-offset-3">
-                <label class="col-md-4 control-label">E-mail</label>
-                <div class="col-md-2">
-                    <input type="email" name="email" class="form-control">
+                <div class="">
+                    <input type="email" name="email" class="form-control" placeholder="Email">
                 </div>
             </div>
 
@@ -30,35 +31,43 @@
             </div>
         </form>
     </div>
-
+    <div class="col-md-12">
+    　
+    </div>
     <div class="col-md-12">
         <form class="form-inline" role="form" action="/preregistration/upload", method="POST", enctype="multipart/form-data">
 
             <!-- 画像 -->
-            <div class="form-group col-md-4 col-md-offset-2">
-                <label class="col-md-2 control-label">Image</label>
-                <div class="col-md-1">
-                    <input id="lefile" name="image" class="form-control" type="file" style="display:none">
+            <div class="form-group col-md-3 col-md-offset-3">
+                <input type="file" id="file_input" name="image" style="display: none;">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" onclick="$('#file_input').click();">
+                            <i class="glyphicon glyphicon-folder-open"></i>
+                        </button>
+                    </span>
+                    <input id="dummy_file" type="text" class="form-control" placeholder="select file..." disabled>
                 </div>
-                <div class="input-append">
-                    <input id="photoCover" class="input-large" type="text">
-                    <a class="btn" onclick="$('input[id=lefile]').click();">Browse</a>
-                </div>
-
-                <script type="text/javascript">
-                    $('input[id=lefile]').change(function() {
-                        $('#photoCover').val($(this).val());
-                    });
-                </script>
             </div>
 
+            <script type="text/javascript">
+                $(function(){
+                    $('#file_input').change(function() {
+                        $('#dummy_file').val($(this).val());
+                    });
+                });
+            </script>
+
             <div class="form-group col-md-3">
-                <label class="col-md-3control-label"></label>
-                <div class="col-md-2 col-md-2">
-                    <input type="submit" class="form-control" value="アップロード">
+                <label class="control-label"></label>
+                <div class="col-md-2">
+                    <input type="submit" class="form-control" value="投稿">
                 </div>
             </div>
         </form>
+    </div>
+    <div class="col-md-12">
+    　
     </div>
     <div class="col-md-12">
         <div class="row">
