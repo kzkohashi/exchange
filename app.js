@@ -113,6 +113,7 @@ _.each([__dirname + '/lib/views/helpers/', __dirname + '/views/helpers/'], funct
 // set config to app.locals
 app.locals.title = config.get('app.title');
 app.locals.facebook = config.get('facebook');
+app.locals.s3 = config.get('s3');
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -14,6 +14,7 @@
         "callbackUrl": "http://127.0.0.1/auth/facebook/callback"
     },
     "s3": {
+        "url": "https://s3-ap-northeast-1.amazonaws.com/",
         "accessKeyId": "AKIAIBIEYKDVVPJODZGA",
         "secretAccessKey": "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",
         "bucket": "exchangenetlocal",
