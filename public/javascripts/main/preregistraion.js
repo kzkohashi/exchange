@@ -14,9 +14,6 @@ require([
             $('.comment-request').click(function() {
                 var preregistrationGoodsId = $(this).data('preregistration-goods-id');
                 var element = document.getElementById(preregistrationGoodsId);
-                console.log('1111111111111');
-                console.log(preregistrationGoodsId);
-                console.log(element.value);
                 $.ajax({
                     type: 'GET',
                     url: '/preregistration/comment',
