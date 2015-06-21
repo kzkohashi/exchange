@@ -11,7 +11,7 @@ require([
         initialize: function() {
             var preregistrationGoodsId;
             var comment;
-            $('#comment-request').click(function() {
+            $('.comment-request').click(function() {
                 var preregistrationGoodsId = $(this).data('preregistration-goods-id');
                 var element = document.getElementById(preregistrationGoodsId);
                 console.log('1111111111111');
