@@ -79,4 +79,39 @@ exports.init = function(router) {
             response.redirect('/preregistration');
         });
     });
+
+    router.get('/preregistration/comment', function(request, response) {
+
+        // validation
+        if (request.param('preregistrationGoodsId')) {
+            request.assert('preregistrationGoodsId').isInt();
+        }
+
+        var errors = request.validationErrors();
+        if (errors) {
+            errorHandler.invalidRequest(response, error);
+            return;
+        }
+
+        // sanitize
+        var preregistrationGoodsId = null;
+        if (request.param('preregistrationGoodsId')) {
+            request.sanitize('preregistrationGoodsId').toInt();
+            preregistrationGoodsId = request.param('preregistrationGoodsId');
+        }
+
+        preregistrationFacade.comment({
+            preregistrationGoodsId: preregistrationGoodsId,
+            comment: request.param('comment'),
+            currentDatetime: request.currentDatetime
+        }, function(error, result) {
+            if (error) {
+                errorHandler.index(response, error);
+                return;
+            }
+            console.log('999999999999999')
+            console.log(result)
+            response.send(result);
+        });
+    });
 }

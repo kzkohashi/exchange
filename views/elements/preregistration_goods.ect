@@ -1,5 +1,26 @@
-<li class="col-sm-12 col-md-3">
+<div class="col-sm-12 col-md-3">
     <div class="thumbnail">
         <img src="<%= @preregistrationGoods.imagePath %>" alt="">
     </div>
-</li>
+    <div class="">
+        <p>comment</p>
+    </div>
+    <div class="">
+        <form class="form-inline" role="form">
+
+            <!-- email address -->
+            <div class="form-group">
+                <div class="">
+                    <input type="text" class="form-control" placeholder="コメントする..." id="<%= @preregistrationGoods.id %>">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label"></label>
+                <div>
+                    <input class="form-control" value="登録" data-preregistration-goods-id="<%= @preregistrationGoods.id %>" id="comment-request">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
