@@ -3,7 +3,9 @@
         <img src="<%= @preregistrationGoods.imagePath %>" alt="">
     </div>
     <div class="">
-        <p>comment</p>
+    <% for comment in @preregistrationGoods.commentList : %>
+        <p><%= comment %></p>
+    <% end %>
     </div>
     <div class="">
         <form class="form-inline" role="form">

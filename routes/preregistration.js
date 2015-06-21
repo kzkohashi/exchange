@@ -109,8 +109,6 @@ exports.init = function(router) {
                 errorHandler.index(response, error);
                 return;
             }
-            console.log('999999999999999')
-            console.log(result)
             response.send(result);
         });
     });
