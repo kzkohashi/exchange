@@ -80,7 +80,7 @@ exports.init = function(router) {
         });
     });
 
-    router.get('/preregistration/comment', function(request, response) {
+    router.post('/preregistration/comment', function(request, response) {
 
         // validation
         if (request.param('preregistrationGoodsId')) {
