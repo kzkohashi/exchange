@@ -5,7 +5,9 @@ require([
     'backbone'
 ], function() {
     var AppRouter = Backbone.Router.extend({
-        routes: {},
+        routes: {
+            '': 'index'
+        },
         initialize: function() {
             var preregistrationGoodsId;
             var comment;
@@ -20,6 +22,8 @@ require([
                         comment: element.value
                     },
                     success: function(data) {
+                        $('#comment-' + preregistrationGoodsId).append('<p>' + element.value + '</p>');
+                        element.value = '';
                     },
                     error: function(){
                     }
