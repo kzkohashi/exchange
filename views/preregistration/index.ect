@@ -81,9 +81,9 @@
         var minidth = 500;
         $(function(){
             var $container = $('.thumbnails');
-            if ( $('html').width() < minidth ) {
-                $container.masonry('destroy');
-            } else {
+            //if ( $('html').width() < minidth ) {
+            //    $container.masonry('destroy');
+            //} else {
                 $container.imagesLoaded( function(){
                     $container.masonry({
                       itemSelector : '.goods',
@@ -91,7 +91,7 @@
                       isFitWidth: true
                     });
                 });
-            }
+            //}
             $(window).resize(function(){
                 $container.masonry({itemSelector : '.goods'});
             });
