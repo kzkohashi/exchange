@@ -1,4 +1,4 @@
-<div class="col-md-3 col-sm-12 col-xs-12">
+<div class="goods col-md-3 col-sm-12 col-xs-12">
     <div class="thumbnail">
         <img src="<%= @preregistrationGoods.imagePath %>" alt="">
     </div>
@@ -11,10 +11,10 @@
         <form class="form-inline">
             <!-- comment -->
             <div class="row">
-                <div class="col-md-10 col-sm-10 col-xs-10">
+                <div class="col-md-8 col-sm-8 col-xs-8">
                     <input type="text" class="form-control" placeholder="コメントする..." id="<%= @preregistrationGoods.id %>">
                 </div>
-                <button type="button" class="col-md-2 col-sm-2 col-xs-2 comment-request btn btn-primary" data-preregistration-goods-id="<%= @preregistrationGoods.id %>">
+                <button type="button" class="col-md-2 col-md-offset-1 col-sm-2 col-xs-2 comment-request btn btn-primary" data-preregistration-goods-id="<%= @preregistrationGoods.id %>">
                     送信
                 </button>
             </div>

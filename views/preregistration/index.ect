@@ -78,16 +78,22 @@
         </ul>
     </div>
     <script type="text/javascript">
+        var minidth = 500;
         $(function(){
             var $container = $('.thumbnails');
-            $container.imagesLoaded( function(){
-                $container.masonry({
-                  itemSelector : '.col-md-3',
-                  isFitWidth: true
+            if ( $('html').width() < minidth ) {
+                $container.masonry('destroy');
+            } else {
+                $container.imagesLoaded( function(){
+                    $container.masonry({
+                      itemSelector : '.goods',
+                      columnWidth:350,
+                      isFitWidth: true
+                    });
                 });
-            });
+            }
             $(window).resize(function(){
-                $container.masonry({itemSelector : '.col-md-3'});
+                $container.masonry({itemSelector : '.goods'});
             });
         });
     </script>
