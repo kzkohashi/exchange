@@ -1,12 +1,9 @@
 <% extend 'layouts/preregistration' %>
 <!-- Page Content -->
 <div class="container">
-
+    <!--
     <% include 'elements/banner' %>
-
-    <div class="text-center">
-        事前登録はじめました！！
-    </div>
+    -->
     <div class="text-center">
         家に眠っているいらないもの、捨てようとしているものを是非アップロードしてください！！
     </div>
@@ -90,7 +87,7 @@
                 $container.imagesLoaded( function(){
                     $container.masonry({
                       itemSelector : '.goods',
-                      columnWidth:290,
+                      columnWidth: 180,
                       isFitWidth: true
                     });
                 });
