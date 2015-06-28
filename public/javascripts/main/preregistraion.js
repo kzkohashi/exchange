@@ -24,7 +24,7 @@ require([
                     success: function(data) {
                         $('#comment-' + preregistrationGoodsId).append('<p>' + element.value + '</p>');
                         element.value = '';
-                        $('#goods-' + preregistrationGoodsId).append('<br>');
+                        document.getElementById('goods-' + preregistrationGoodsId).style.marginBottom = '100px';
                     },
                     error: function() {
                     }
