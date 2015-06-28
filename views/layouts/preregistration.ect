@@ -3,6 +3,7 @@
     <head>
         <title><%= @title %></title>
         <meta name="viewport" content="width=device-width" >
+        <link media="only screen and (max-device-width:480px)" href="/stylesheets/smartphone.css" type="text/css" rel="stylesheet" />
         <!-- base setting -->
         <%- @loader.js('/javascripts/config/base_setting.js') %>
 
@@ -30,7 +31,7 @@
         <% content %>
         <!-- footer -->
         <% include 'elements/footer' %>
-         <!-- footer 
+         <!-- footer
         <% include 'elements/facebook' %>
         -->
         <!-- Facebook JavaScript SDK -->

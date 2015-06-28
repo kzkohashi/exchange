@@ -73,7 +73,7 @@
     <div class="col-md-12">
     　
     </div>
-    <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <ul class="row thumbnails">
             <% for preregistrationGoods in @preregistrationGoodsList : %>
                 <!-- user goods -->
@@ -85,6 +85,7 @@
         var minidth = 500;
         $(function(){
             var $container = $('.thumbnails');
+            var $goods = $('.thumbnail');
             //if ( $('html').width() < minidth ) {
             //    $container.masonry('destroy');
             //} else {
