@@ -24,8 +24,9 @@ require([
                     success: function(data) {
                         $('#comment-' + preregistrationGoodsId).append('<p>' + element.value + '</p>');
                         element.value = '';
+                        $('#goods-' + preregistrationGoodsId).append('<br>');
                     },
-                    error: function(){
+                    error: function() {
                     }
                 });
             });
