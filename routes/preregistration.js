@@ -112,4 +112,36 @@ exports.init = function(router) {
             response.send(result);
         });
     });
+
+    router.post('/preregistration/like', function(request, response) {
+
+        // validation
+        if (request.param('preregistrationGoodsId')) {
+            request.assert('preregistrationGoodsId').isInt();
+        }
+
+        var errors = request.validationErrors();
+        if (errors) {
+            errorHandler.invalidRequest(response, error);
+            return;
+        }
+
+        // sanitize
+        var preregistrationGoodsId = null;
+        if (request.param('preregistrationGoodsId')) {
+            request.sanitize('preregistrationGoodsId').toInt();
+            preregistrationGoodsId = request.param('preregistrationGoodsId');
+        }
+
+        preregistrationFacade.like({
+            preregistrationGoodsId: preregistrationGoodsId,
+            currentDatetime: request.currentDatetime
+        }, function(error, result) {
+            if (error) {
+                errorHandler.index(response, error);
+                return;
+            }
+            response.send(result);
+        });
+    });
 }

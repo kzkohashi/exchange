@@ -30,6 +30,24 @@ require([
                     }
                 });
             });
+
+            $('.like-request').click(function() {
+                var element = $(this);
+                var preregistrationGoodsId = element.data('preregistration-goods-id');
+                $.ajax({
+                    type: 'POST',
+                    url: '/preregistration/like',
+                    data: {
+                        preregistrationGoodsId: preregistrationGoodsId,
+                    },
+                    success: function(data) {
+                        var like = data.like + 1;
+                        element.html("<span id='like-' + + preregistrationGoodsId"  + " class='glyphicon glyphicon-star' aria-hidden='true'></span>" + ' ' + like);
+                    },
+                    error: function() {
+                    }
+                });
+            });
         }
     });
     window.router = new AppRouter();
