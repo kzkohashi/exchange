@@ -1,7 +1,7 @@
 <div id="goods-<%= @preregistrationGoods.id %>" style="margin-bottom:40px;" class="goods col-lg-3 col-md-3 col-sm-12 col-xs-12">
     <div class="thumbnail resizeimage" style="position: relative;">
         <img src="<%= @preregistrationGoods.imagePath %>" alt="">
-        <button style="position: absolute; bottom: 5px; right: 8px; width: 60px; height: 30px" type="button" type="button" class="like-request btn btn-default btn-md" data-preregistration-goods-id="<%= @preregistrationGoods.id %>">
+        <button type="button" type="button" class="like-request btn btn-default btn-md" data-preregistration-goods-id="<%= @preregistrationGoods.id %>">
             <span id="like-<%= @preregistrationGoods.id %>" class="glyphicon glyphicon-star" aria-hidden="true"></span> <%= @preregistrationGoods.like %>
         </button>
     </div>
