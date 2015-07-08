@@ -22,17 +22,42 @@ var configure = {
 
 configure.add('requirejsSettings',
     {
-        baseUrl: '/javascripts/lib',
+        baseUrl: '/',
         paths: {
-            'backbone': 'backbone-min',
-            'jquery': 'jquery.min',
-            'underscore': 'underscore-min'
+            'backbone': 'javascripts/lib/backbone-min',
+            'jquery': 'javascripts/lib/jquery.min',
+            'jquery-masonry': 'javascripts/lib/jquery.masonry.min',
+            'underscore': 'javascripts/lib/underscore-min',
+            'bootstrap': 'bootstrap/js/bootstrap.min',
+            'file-upload': 'javascripts/lib/file_upload',
+            'auto-layout': 'javascripts/lib/auto_layout',
+            'image-loaded': 'javascripts/lib/image_loaded'
         },
         // moduleの依存関係
         shim: {
             'backbone': {
                 deps: ['underscore', 'jquery'],
-                exports: 'Backbone'
+                exports: 'backbone'
+            },
+            'bootstrap': {
+                deps: ['jquery'],
+                exports: 'bootstrap'
+            },
+            'jquery-masonry': {
+                deps: ['jquery'],
+                exports: 'jquery-masonry'
+            },
+            'image-loaded': {
+                deps: ['jquery'],
+                exports: 'image-loaded'
+            },
+            'file-upload': {
+                deps: ['jquery'],
+                exports: 'file-upload'
+            },
+            'auto-layout': {
+                deps: ['jquery', 'image-loaded'],
+                exports: 'auto-layout'
             }
         }
     }
