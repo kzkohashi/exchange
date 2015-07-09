@@ -9,6 +9,6 @@ $(function(){
         });
     });
     $(window).resize(function(){
-        container.masonry({itemSelector : '.goods'});
+        $container.masonry({itemSelector : '.goods'});
     });
 });

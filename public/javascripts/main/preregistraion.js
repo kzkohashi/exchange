@@ -4,8 +4,7 @@ requirejs.config(configure.get('requirejsSettings'));
 require([
     'backbone',
     'bootstrap',
-    'file-upload',
-    'auto-layout'
+    'file-upload'
 ], function() {
     var AppRouter = Backbone.Router.extend({
         routes: {
