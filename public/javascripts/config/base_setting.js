@@ -56,7 +56,7 @@ configure.add('requirejsSettings',
                 exports: 'file-upload'
             },
             'auto-layout': {
-                deps: ['jquery', 'image-loaded'],
+                deps: ['jquery', 'image-loaded', 'jquery-masonry'],
                 exports: 'auto-layout'
             }
         }
